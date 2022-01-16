@@ -1,15 +1,11 @@
 package org.fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.steps.ScenarioSteps;
-import org.fasttrackit.pages.HomePage;
-import org.fasttrackit.pages.SearchResultsPage;
 import org.junit.Assert;
 
-public class SearchSteps extends ScenarioSteps {
+public class SearchSteps extends BaseSteps {
 
-    private HomePage homePage;
-    private SearchResultsPage searchResultsPage;
+
 
     @Step
     public void executeSearch(String keyword){
@@ -19,7 +15,7 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void findAndOpenProduct(String productName){
-        Assert.assertTrue(searchResultsPage.openProduct(productName));
+        Assert.assertTrue(searchresultsPage.openProduct(productName));
     }
 
     @Step
@@ -27,4 +23,21 @@ public class SearchSteps extends ScenarioSteps {
         executeSearch(productName);
         findAndOpenProduct(productName);
     }
+
+    @Step
+    public void sortListOfProductsByPrice(String productName){
+        searchresultsPage.sortListOfProductsByPrice();
+    }
+
+    @Step
+    public void pricesForProductsInList(){
+        searchresultsPage.productPrice();
+
+    }
+
+   // @Step
+  //  public void isSortByPriceCorrect (){
+    //   Assert.assertTrue();
+   // }
+
 }

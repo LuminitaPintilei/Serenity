@@ -1,21 +1,10 @@
 package org.fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.steps.ScenarioSteps;
-import org.fasttrackit.pages.HomePage;
-import org.fasttrackit.pages.LoginPage;
-import org.fasttrackit.pages.MyAccountPage;
 
-public class LoginSteps extends ScenarioSteps {
+public class LoginSteps extends BaseSteps {
 
-    private HomePage homePage;
-    private LoginPage loginPage;
-    private MyAccountPage myAccountPage;
 
-    @Step
-    public void navigateToHomePage(){
-        homePage.open();
-    }
 
     @Step
     public void navigateToLoginPage(){
@@ -41,7 +30,7 @@ public class LoginSteps extends ScenarioSteps {
 
     @Step
     public void doLogin(String user, String pass){
-        navigateToHomePage();
+
         navigateToLoginPage();
         enterCredentials(user,pass);
         clickLogin();
